@@ -38,3 +38,12 @@ exports.postOneScream = (req, res) => {
             console.error(err);
         });
  }
+
+ exports.getScream = (req,res) => {
+     let screamData = {};
+
+     db.doc(`/screams/${req.params.screamId}`).get()
+        .then(doc => {
+            
+        })
+ }
