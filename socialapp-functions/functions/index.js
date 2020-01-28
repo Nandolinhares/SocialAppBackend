@@ -3,7 +3,7 @@ const functions = require('firebase-functions');
 const { db } = require('./util/admin');
 
 const { getAllScreams, postOneScream, getScream, commentOnScream, likeScream, unlikeScream, deleteScream } = require('./handlers/screams');
-const { signup, login, uploadImage, addUserDetails, getAuthenticatedUser } = require('./handlers/users');
+const { signup, login, uploadImage, addUserDetails, getAuthenticatedUser, getUserDetails, markNotificationsRead } = require('./handlers/users');
 
 const express = require('express');
 const app = express();
@@ -24,7 +24,9 @@ app.post('/signup', signup);
 app.post('/login', login);
 app.post('/user/image', FBAuth, uploadImage);
 app.post('/user', FBAuth, addUserDetails);
-app.get('/user', FBAuth, getAuthenticatedUser);
+app.get('/user', FBAuth, getAuthenticatedUser); 
+app.get('/user/:handle', getUserDetails);
+app.post('/notifications', FBAuth, markNotificationsRead);
 
 exports.api = functions.https.onRequest(app);
 
