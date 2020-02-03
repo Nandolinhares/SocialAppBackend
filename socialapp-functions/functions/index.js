@@ -96,8 +96,8 @@ exports.onUserImageChange = functions.firestore.document('/users/{userId}')
                         batch.update(scream, { userImage: change.after.data().imageUrl });
                     })
                     return batch.commit();
-                }) 
-        }
+                }); 
+        } else return true;
     })
 
 exports.onScreamDelete = functions.firestore.document('/screams/{screamId}')
@@ -127,3 +127,5 @@ exports.onScreamDelete = functions.firestore.document('/screams/{screamId}')
                 console.error(err);
             })
     })    
+
+    //Video parado em 4:14h
