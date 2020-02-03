@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const cors = require('cors');
 
 const { db } = require('./util/admin');
 
@@ -7,6 +8,8 @@ const { signup, login, uploadImage, addUserDetails, getAuthenticatedUser, getUse
 
 const express = require('express');
 const app = express();
+app.use(cors());
+
 
 const FBAuth = require('./util/fbAuth');
  
