@@ -128,4 +128,4 @@ exports.onScreamDelete = functions.firestore.document('/screams/{screamId}')
             })
     })    
 
-    //Video parado em 4:14h
+   
